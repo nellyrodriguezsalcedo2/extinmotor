@@ -6,24 +6,6 @@
         html,body{margin:0;padding:0;height:100%;overflow:hidden}
         iframe{border:none;width:100%;height:100vh;display:block}
     </style>
-  <script>
-(function () {
-  if (sessionStorage.getItem("human_ok")) return;
-
-  document.documentElement.innerHTML = `
-    <body style="font-family:Arial;text-align:center;padding-top:80px">
-      <h2>Verificación rápida</h2>
-      <p>Presiona continuar para entrar</p>
-      <button onclick="sessionStorage.setItem('human_ok','1'); location.reload();" 
-        style="padding:15px 25px;font-size:18px;cursor:pointer;">
-        Continuar
-      </button>
-    </body>
-  `;
-
-  throw new Error("waiting verification");
-})();
-</script>
 </head>
 <body>
  
